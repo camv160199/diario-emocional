@@ -1,38 +1,40 @@
-Diario Emocional — Plataforma de Análisis Emocional
+Diario Emocional
 
-Aplicación web completa que permite escribir entradas de diario, analizar emociones automáticamente y visualizar estadísticas del estado emocional a lo largo del tiempo.
+Aplicación web que permite a los usuarios escribir entradas de diario y obtener análisis emocional automático del texto. El sistema identifica si la entrada es positiva, negativa o neutral y muestra estadísticas generales. Incluye autenticación mediante JWT, editor de entradas, historial con filtros y una gráfica emocional.
 
-Incluye:
+Objetivo del proyecto
 
-Backend con Node.js + Express
+Desarrollar una aplicación web funcional donde los usuarios puedan:
 
-Base de datos SQLite (local)
+Crear una cuenta e iniciar sesión.
 
-Frontend con React + Vite
+Escribir entradas de diario con análisis emocional automático.
 
-Análisis emocional con IA (sentiment.js)
+Visualizar un historial filtrable por emoción, fecha o texto.
 
-Autenticación JWT
+Consultar estadísticas generales mediante una gráfica.
 
-Gráficas con Chart.js
+Mantener sus datos protegidos mediante autenticación JWT.
 
-🎯 Objetivo del proyecto
+Este proyecto corresponde al Proyecto Nivel 3.
 
-Crear una plataforma donde los usuarios puedan:
+Tecnologías utilizadas
 
-Registrar entradas de diario.
+Backend:
 
-Recibir análisis emocional del texto (positivo, negativo o neutral).
+Node.js
 
-Visualizar estadísticas dinámicas.
+Express
 
-Consultar un historial filtrable.
+SQLite3
 
-Autenticarse mediante JSON Web Tokens.
+JSON Web Tokens (jsonwebtoken)
 
-Este proyecto cumple con los requisitos del Proyecto Nivel 3.
+bcrypt
 
-🧩 Tecnologías utilizadas
+sentiment
+
+CORS
 
 Frontend:
 
@@ -42,153 +44,63 @@ Vite
 
 Chart.js
 
-CSS personalizado
+CSS
 
-Backend:
+Instalación y ejecución local
 
-Node.js + Express
+El proyecto está dividido en dos carpetas: backend y frontend.
 
-SQLite3
-
-JWT (jsonwebtoken)
-
-bcrypt
-
-CORS
-
-sentiment
-
-🛠 Instalación y ejecución local
-
-El proyecto está dividido en dos carpetas principales:
-
-/backend
-/frontend
-
-Sigue estos pasos para ejecutarlo:
-
-1. Clonar el repositorio
-
+Clonar el repositorio:
 git clone https://github.com/camv160199/diario-emocional.git
 
 cd diario-emocional
 
-⚙️ 2. Backend — Instalación
-
+Instalar dependencias del backend:
 cd backend
 npm install
 
-▶️ 3. Backend — Ejecutar el servidor
-
+Ejecutar el servidor del backend:
 node index.js
+El servidor se ejecutará en http://localhost:4000
 
-Debería aparecer:
-
-Servidor ejecutándose en http://localhost:4000
-
-🎨 4. Frontend — Instalación
-
+Instalar dependencias del frontend:
 cd ../frontend
 npm install
 
-🚀 5. Frontend — Ejecutar la aplicación
-
+Ejecutar el frontend:
 npm run dev
+Acceder al enlace que muestra Vite (ej. http://localhost:5173
+)
 
-Entrar en el link que aparece, por ejemplo:
+Autenticación
 
-http://localhost:5173
+El sistema utiliza JWT. Para acceder al dashboard es necesario iniciar sesión. Las rutas protegidas requieren enviar el token en el encabezado Authorization con el formato:
+Bearer TOKEN
 
-🔐 Autenticación
+Funcionalidades incluidas
 
-El sistema utiliza JWT.
-Cada usuario debe:
-
-Registrarse
-
-Iniciar sesión
-
-Recibir su token
-
-Acceder al dashboard
-
-Sin token no puede entrar.
-
-✨ Funcionalidades del sistema
-
-Registro e inicio de sesión
+Registro e inicio de sesión de usuarios
 
 Editor para escribir entradas
 
-Análisis emocional automático
+Análisis emocional del texto
 
-Guardado de entradas con fecha y emoción
+Guardado automático de la emoción y puntaje
 
-Historial filtrable por:
+Historial de entradas filtrable por emoción, fechas y búsqueda por texto
 
-Emoción
+Estadísticas generales del usuario
 
-Fecha (hoy, semana, mes)
+Gráfica emocional generada con Chart.js
 
-Texto buscado
+Interfaz limpia y fácil de usar
 
-Estadísticas:
+Nota importante sobre despliegue
 
-Total de entradas
+El proyecto utiliza SQLite, por lo que solo funciona en modo local. Plataformas como Railway, Render o Vercel no soportan SQLite. Para desplegar la aplicación sería necesario migrar la base de datos a PostgreSQL o Supabase.
 
-Positivas
-
-Negativas
-
-Neutrales
-
-Gráfica de barras
-
-Dashboard limpio y responsivo
-
-Código organizado
-
-📊 Estructura del repositorio
-
-diario-emocional/
-├── backend/
-│ ├── index.js
-│ ├── db.js
-│ ├── sentiment.js
-│ ├── database.sqlite
-│ └── routes/
-│ ├── auth.js
-│ └── entries.js
-├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── App.jsx
-│ │ └── index.css
-│ └── vite.config.js
-└── README.md
-
-⚠️ Nota sobre despliegue
-
-SQLite funciona únicamente en modo local.
-Plataformas como Railway, Render y Vercel no permiten SQLite, por lo que el proyecto solo puede ejecutarse localmente.
-
-Para desplegarlo en la nube es necesario migrar a PostgreSQL o Supabase (opcional para este proyecto).
-
-👤 Autor
+Autor
 
 Carlos Munguía
 Proyecto académico — Desarrollo Web Nivel 3
 2025
-
-🎉 ¡Gracias por revisar este proyecto!
-
-Mejoras futuras recomendadas:
-
-Migración a PostgreSQL para permitir despliegue online
-
-PWA para funcionamiento offline
-
-Modo oscuro
-
-Análisis emocional avanzado usando APIs de IA
