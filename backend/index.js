@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const analizarTexto = require('./sentiment');
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const JWT_SECRET = "superclave123";
 
 app.use(cors());
